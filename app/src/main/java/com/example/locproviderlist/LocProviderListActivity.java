@@ -1,4 +1,4 @@
-package com.example.locproviderlist;
+ package com.example.locproviderlist;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -30,12 +30,12 @@ public class LocProviderListActivity extends AppCompatActivity {
 
                 locProvList = lm.getAllProviders();
 
-                String s = "";
-                for (int i = 0; i < locProvList.size(); i++){
-                    s += "Loc. Providers: " + locProvList.get(i) + "\n"
-                            + "Status: " + lm.isProviderEnabled(locProvList.get(i)) + "\n\n";
+                mTextView.setText("");
+
+                for (String location : locProvList){
+                    mTextView.append("Loc. provider: " + location + "\n" +
+                            "Status: " + lm.isProviderEnabled(location) + "\n\n");
                 }
-                mTextView.setText(s);
             }
         }));
 
